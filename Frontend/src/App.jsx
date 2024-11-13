@@ -1,21 +1,40 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { lazy } from "react";
-
+import { lazy,useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import axios from 'axios'
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
+const Register = lazy(() => import("./pages/Register"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const App = () => {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login />} />
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
-				<Route path="*" element={<NotFound />} />
-			</Routes>
-		</BrowserRouter>
-	);
+
+
+const App = () => {
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
+  useEffect(() => {
+    axios.get("/profile").then((response) => {
+      if (response.data == null && userInfo) {
+        dispatch(logout());
+      }
+    });
+  }, []);
+  return (
+    <div className="bg-cream">
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
+  );
 };
 
 export default App;
