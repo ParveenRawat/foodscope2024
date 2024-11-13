@@ -1,9 +1,21 @@
-function App() {
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const Login = lazy(() => import("./pages/Login"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+const App = () => {
 	return (
-		<>
-			<p className="text-2xl">Hello World</p>
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/login" element={<Login />} />
+
+				<Route path="*" element={<NotFound />} />
+			</Routes>
+		</BrowserRouter>
 	);
-}
+};
 
 export default App;
