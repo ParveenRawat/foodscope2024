@@ -20,7 +20,7 @@ const Navbar = () => {
           href="#flavor-pairing"
           className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
         >
-          Flavor pairing
+          Flavor Pairing
         </a>
       </nav>
 
@@ -28,13 +28,8 @@ const Navbar = () => {
         <a href="#search" className="text-[#333333] text-xl">
           🔍
         </a>
-        {(userInfo)?(<DropDown username={userInfo}/>):<Link to="/login">Login</Link>}
-        <a
-          href="#my-pantry"
-          className="flex items-center gap-2 px-3 py-2 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
-        >
-          🛒 My Pantry
-        </a>
+        {(userInfo)?(<DropDown username={userInfo.name}/>):<Link to="/login">Login</Link>}
+        
       </div>
     </header>
   );
