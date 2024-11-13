@@ -20,7 +20,7 @@ const Navbar = () => {
           href="#flavor-pairing"
           className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
         >
-          Flavor Pairing
+          Flavor pairing
         </a>
       </nav>
 
