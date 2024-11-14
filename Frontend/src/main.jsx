@@ -11,8 +11,10 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <HelmetProvider>
-        <App />
+        <div className="font-Roboto">
+          <App />
+        </div>
       </HelmetProvider>
     </Provider>
-  </StrictMode>
+  </StrictMode>,
 );
