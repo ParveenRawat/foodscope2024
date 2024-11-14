@@ -5,14 +5,14 @@ import Footer from "./Footer";
 const Layout = () => (WrappedComponent) => {
   return (props) => {
     return (
-      <div className="">
+      <div className="flex flex-col">
         <Navbar />
 
-        <div className="">
+        <div className="flex-1">
           <WrappedComponent {...props} />
         </div>
 
-        <div className="bottom-0">
+        <div>
           <Footer />
         </div>
       </div>
