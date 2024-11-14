@@ -24,7 +24,7 @@ const App = () => {
     });
   }, []);
   return (
-    <div className="bg-cream">
+    <div className="bg-cream font-headings">
     <BrowserRouter>
     <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
 <Suspense>
