@@ -11,13 +11,13 @@ const Navbar = () => {
 
       <nav className="flex gap-5">
         <a
-          href="#explore-recipes"
+          href="explore-recipes"
           className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
         >
           Explore Recipes
         </a>
         <a
-          href="#flavor-pairing"
+          href="flavor-pairing"
           className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
         >
           Flavor Pairing
@@ -25,11 +25,14 @@ const Navbar = () => {
       </nav>
 
       <div className="flex items-center gap-4">
-        <a href="#search" className="text-[#333333] text-xl">
+        <a href="search" className="text-[#333333] text-xl">
           🔍
         </a>
-        {(userInfo)?(<DropDown username={userInfo.name}/>):<Link to="/login">Login</Link>}
-        
+        {userInfo ? (
+          <DropDown username={userInfo.name} />
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </div>
     </header>
   );
