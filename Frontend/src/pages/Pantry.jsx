@@ -1,401 +1,24 @@
 // Pantry.js
 import React, { useState } from "react";
-
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import Layout from "../components/layout/Layout";
 import axios from "axios";
+
 import { helix } from "ldrs";
-import Card from "../components/hero_page_components/Card";
-import toast from "react-hot-toast";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+
+import Layout from "../components/layout/Layout";
+import Card from "../components/Card";
+
+import { pantryItems } from "../constants/constants";
 
 helix.register();
 
 // Sample data for recipe generation (in a real app, this would come from an API)
-const sampleRecipes = [
-	{
-		id: 1,
-		name: "Vegetable Stir Fry",
-		ingredients: ["bell pepper", "onion", "carrot"],
-	},
-	{ id: 2, name: "Avocado Toast", ingredients: ["avocado", "bread"] },
-	{
-		id: 3,
-		name: "Spaghetti Marinara",
-		ingredients: ["tomato", "garlic", "pasta"],
-	},
-	{
-		id: 4,
-		name: "Chicken Salad",
-		ingredients: ["chicken", "lettuce", "tomato", "cucumber", "mushrooms"],
-	},
-	{
-		id: 5,
-		name: "Mushroom Risotto",
-		ingredients: ["mushrooms", "rice", "onion"],
-	},
-];
 
 const Pantry = () => {
-	const pantryItems = [
-		{
-			id: 0,
-			name: "Apples",
-		},
-		{
-			id: 1,
-			name: "Bananas",
-		},
-		{
-			id: 2,
-			name: "Oranges",
-		},
-		{
-			id: 3,
-			name: "Lemons",
-		},
-		{
-			id: 4,
-			name: "Strawberries",
-		},
-		{
-			id: 5,
-			name: "Blueberries",
-		},
-		{
-			id: 6,
-			name: "Pineapple",
-		},
-		{
-			id: 7,
-			name: "Mango",
-		},
-		{
-			id: 8,
-			name: "Grapes",
-		},
-		{
-			id: 9,
-			name: "Avocado",
-		},
-		{
-			id: 10,
-			name: "Potato",
-		},
-		{
-			id: 11,
-			name: "Onions",
-		},
-		{
-			id: 12,
-			name: "Tomatoes",
-		},
-		{
-			id: 13,
-			name: "Garlic",
-		},
-		{
-			id: 14,
-			name: "Bell Peppers",
-		},
-		{
-			id: 15,
-			name: "Spinach",
-		},
-		{
-			id: 16,
-			name: "Carrots",
-		},
-		{
-			id: 17,
-			name: "Broccoli",
-		},
-		{
-			id: 18,
-			name: "Mushrooms",
-		},
-		{
-			id: 19,
-			name: "Zucchini",
-		},
-		{
-			id: 20,
-			name: "Basil",
-		},
-		{
-			id: 21,
-			name: "Parsley",
-		},
-		{
-			id: 22,
-			name: "Thyme",
-		},
-		{
-			id: 23,
-			name: "Rosemary",
-		},
-		{
-			id: 24,
-			name: "Cilantro",
-		},
-		{
-			id: 25,
-			name: "Cumin",
-		},
-		{
-			id: 26,
-			name: "Turmeric",
-		},
-		{
-			id: 27,
-			name: "Chili Powder",
-		},
-		{
-			id: 28,
-			name: "Paprika",
-		},
-		{
-			id: 29,
-			name: "Oregano",
-		},
-		{
-			id: 30,
-			name: "Chicken",
-		},
-		{
-			id: 31,
-			name: "Beef",
-		},
-		{
-			id: 32,
-			name: "Pork",
-		},
-		{
-			id: 33,
-			name: "Fish",
-		},
-		{
-			id: 34,
-			name: "Eggs",
-		},
-		{
-			id: 35,
-			name: "Tofu",
-		},
-		{
-			id: 36,
-			name: "Lentils",
-		},
-		{
-			id: 37,
-			name: "Chickpeas",
-		},
-		{
-			id: 38,
-			name: "Black Beans",
-		},
-		{
-			id: 39,
-			name: "Paneer",
-		},
-		{
-			id: 40,
-			name: "Rice",
-		},
-		{
-			id: 41,
-			name: "Quinoa",
-		},
-		{
-			id: 42,
-			name: "Oats",
-		},
-		{
-			id: 43,
-			name: "Barley",
-		},
-		{
-			id: 44,
-			name: "Flour",
-		},
-		{
-			id: 45,
-			name: "Pasta",
-		},
-		{
-			id: 46,
-			name: "Bread",
-		},
-		{
-			id: 47,
-			name: "Tortillas",
-		},
-		{
-			id: 48,
-			name: "Couscous",
-		},
-		{
-			id: 49,
-			name: "Polenta",
-		},
-		{
-			id: 50,
-			name: "Milk",
-		},
-		{
-			id: 51,
-			name: "Cheese",
-		},
-		{
-			id: 52,
-			name: "Butter",
-		},
-		{
-			id: 53,
-			name: "Yogurt",
-		},
-		{
-			id: 54,
-			name: "Cream",
-		},
-		{
-			id: 55,
-			name: "Sour Cream",
-		},
-		{
-			id: 56,
-			name: "Olive Oil",
-		},
-		{
-			id: 57,
-			name: "Vegetable Oil",
-		},
-		{
-			id: 58,
-			name: "Soy Sauce",
-		},
-		{
-			id: 59,
-			name: "Vinegar",
-		},
-		{
-			id: 60,
-			name: "Mustard",
-		},
-		{
-			id: 61,
-			name: "Ketchup",
-		},
-		{
-			id: 62,
-			name: "Mayonnaise",
-		},
-		{
-			id: 63,
-			name: "Hot Sauce",
-		},
-		{
-			id: 64,
-			name: "Honey",
-		},
-		{
-			id: 65,
-			name: "Peanut Butter",
-		},
-		{
-			id: 66,
-			name: "Sugar",
-		},
-		{
-			id: 67,
-			name: "Brown Sugar",
-		},
-		{
-			id: 68,
-			name: "Salt",
-		},
-		{
-			id: 69,
-			name: "Baking Powder",
-		},
-		{
-			id: 70,
-			name: "Baking Soda",
-		},
-		{
-			id: 71,
-			name: "Cocoa Powder",
-		},
-		{
-			id: 72,
-			name: "Vanilla Extract",
-		},
-		{
-			id: 73,
-			name: "Shrimp",
-		},
-		{
-			id: 74,
-			name: "Crab",
-		},
-		{
-			id: 75,
-			name: "Lobster",
-		},
-		{
-			id: 76,
-			name: "Clams",
-		},
-		{
-			id: 77,
-			name: "Squid",
-		},
-		{
-			id: 78,
-			name: "Chocolate Chips",
-		},
-		{
-			id: 79,
-			name: "Almonds",
-		},
-		{
-			id: 80,
-			name: "Walnuts",
-		},
-		{
-			id: 81,
-			name: "Cashews",
-		},
-		{
-			id: 82,
-			name: "Sunflower Seeds",
-		},
-		{
-			id: 83,
-			name: "Chia Seeds",
-		},
-		{
-			id: 84,
-			name: "Flax Seeds",
-		},
-		{
-			id: 85,
-			name: "Raisins",
-		},
-		{
-			id: 86,
-			name: "Canned Tomato Sauce",
-		},
-		{
-			id: 87,
-			name: "Coconut Milk",
-		},
-	];
-
 	const [ingredients, setIngredients] = useState([]);
 	const [input, setInput] = useState("");
 	const [suggestedRecipes, setSuggestedRecipes] = useState([]);
 
-	const [loading, setLoading] = useState(false);
 	const [show, setShow] = useState(false);
 
 	// Function to add an ingredient
@@ -413,7 +36,6 @@ const Pantry = () => {
 
 	//search recipes by ingredients using the recipeDB/searchRecipeByIngUsed/ endpoint
 	const generateRecipes = async () => {
-		setLoading(true);
 		var usedIngredients = "";
 
 		ingredients.forEach((ingredient) => {
@@ -424,28 +46,31 @@ const Pantry = () => {
 
 		console.log(usedIngredients);
 
-
-		axios
-			.post(
-				"https://cosylab.iiitd.edu.in/recipe-search/recipesByIngredient?page=10&pageSize=5",
+		try {
+			const response = await axios.post(
+				"https://cosylab.iiitd.edu.in/recipe-search/recipesByIngredient?page=10&pageSize=10",
 				{
 					ingredientUsed: usedIngredients,
 				},
 				{
-					withCredentials: false,
+					withCredentials: false, // Ensure this aligns with your API requirements
 				},
-			).then((response) => {
-				if (response && response.data.payload) {
-					setSuggestedRecipes(response.data.payload.data)
-				} else {
-					setSuggestedRecipes([]);
-					toast.error("No recipes found :(")
-				}
+			);
 
-			}).catch((error) => {
-				console.log(error)
-			})
-		setShow(false)
+			if (response?.data?.payload?.data) {
+				const recipes = response.data.payload.data;
+				console.log("Fetched Recipes:", recipes);
+				setSuggestedRecipes(recipes);
+			} else {
+				console.log("No recipes found in the response.");
+				setSuggestedRecipes([]);
+			}
+		} catch (error) {
+			console.error("An error occurred while fetching recipes:", error);
+			setSuggestedRecipes([]);
+		} finally {
+			setShow(false);
+		}
 	};
 
 	const handleSearch = (item) => {
