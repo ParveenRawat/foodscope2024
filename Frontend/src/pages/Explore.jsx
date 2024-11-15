@@ -96,7 +96,7 @@ const Explore = () => {
 
         // Filter the recipes based on the search term
         const filtered = recipesData.filter((recipe) =>
-            recipe.name.toLowerCase().includes(term.toLowerCase())
+            recipe.name.toLowerCase().includes(term.toLowerCase()),
         );
         setFilteredRecipes(filtered);
     };

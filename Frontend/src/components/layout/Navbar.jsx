@@ -1,14 +1,13 @@
 import React from "react";
 import DropDown from "../dropdown/DropDown";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../../logo.png"
+import logo from "../../../src/logo.png";
 const Navbar = () => {
-  const navigate = useNavigate()
   const { userInfo } = useSelector((state) => state.auth);
 
   return (
-    <header className="flex justify-between items-center p-1 bg-[#A3B9A2] border-b border-black ">
+    <header className="flex justify-between items-center p-1 pl bg-[#A3B9A2] border-b border-black ">
       <div className="text-2xl font-bold text-[#333333] grid grid-flow-col items-center">
         <div>
           <a href="/">
