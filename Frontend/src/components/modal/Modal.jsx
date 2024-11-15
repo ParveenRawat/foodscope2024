@@ -1,10 +1,7 @@
 import React from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import axios from 'axios'
-export default function Modal({title,desc,res}) {
-
-
-  
+export default function Modal({title,res}) { 
 
 
   const [showModal, setShowModal] = React.useState(false);
@@ -39,7 +36,7 @@ export default function Modal({title,desc,res}) {
                 {/*body*/}
                 <div className="relative p-6 flex-auto overflow-y-auto max-h-64">
   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-    {desc}{res.data.payload.Continent}
+    {res.data.payload.Continent}
   </p>
 </div>
 
