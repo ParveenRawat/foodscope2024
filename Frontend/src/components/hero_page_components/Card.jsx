@@ -15,7 +15,9 @@ const Card = ({ title, description, image, url, res }) => {
             />
 
             {/* Recipe Title */}
-            <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2 max-w-sm">{title}</h3>
+            <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2 max-w-sm">
+                {title}
+            </h3>
 
             {/* Recipe Description */}
             <p className="text-[#333333] mb-4">{description}</p>

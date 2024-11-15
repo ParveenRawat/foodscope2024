@@ -7,7 +7,7 @@ export default {
         center: true,
         padding: {
           DEFAULT: "20px",
-          lg: "100px",
+          lg: "60px",
         },
       },
       fontFamily: {
