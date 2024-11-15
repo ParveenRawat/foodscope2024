@@ -34,7 +34,7 @@ function Register() {
         name,
         email,
         password,
-      });
+      },{withCredentials:true});
       if (data.error) { 
         toast.error(data.error); //if response returns an error
       } else { //redirecting to login page

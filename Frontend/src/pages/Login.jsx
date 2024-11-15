@@ -27,16 +27,16 @@ const Login = () => {
       const { data } = await axios.post("/login", {
         email,
         password,
-      });
+      },{withCredentials:true});
 
       if (data.error) {
         toast.error(data.error);
       } else {
+        
         setEmail("");
         setPassword("");
         toast.success("Login Successful!");
-        dispatch(setCredentials({name:data.name, email:data.email}));
-        console.log(data)
+        dispatch(setCredentials({name:data.name, email:data.email}));        
         navigate("/");
       }
     } catch (error) {
