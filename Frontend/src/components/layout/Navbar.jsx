@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="text-2xl font-bold text-[#333333] grid grid-flow-col items-center">
         <div>
           <a href="/">
-            <img src={logo} className="h-16 scale-150 w-140 pl-16 m-1" />
+            <img src={logo} className="h-16 scale-150 w-32 pl-16 m-1" />
           </a>
         </div>
       </div>

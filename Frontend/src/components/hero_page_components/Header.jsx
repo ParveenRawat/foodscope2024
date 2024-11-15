@@ -22,7 +22,7 @@ export const Header = () => {
       <div className="container bg-[../../blurry.svg]">
         <div className=" mt-20 md:flex flex-1">
           <div className="md:w-[800px] ">
-            <h1 className="mt-6 bg-gradient-to-b from-black to-jade text-jade pb-2 bg-clip-text text-3xl font-bold tracking-tighter text-transparent md:text-7xl">
+            <h1 className="mt-6 bg-gradient-to-b from-black to-jade text-jade pb-2 bg-clip-text text-3xl font-bold tracking-tighter text-transparent md:text-5xl">
               Every Meal is A Story!
               <br />
               <span className="py-8">Delicious Recipes at Your Fingertips</span>
