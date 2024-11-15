@@ -42,6 +42,7 @@ const FindRecipe = ({ search }) => {
                     const fetchedRecipes = response.data.payload.data;
                     console.log("Fetched Recipes:", fetchedRecipes);
                     setRecipes(fetchedRecipes);
+
                 } else {
                     console.log("No recipes found in the response.");
                     setRecipes([]);
@@ -74,25 +75,12 @@ const FindRecipe = ({ search }) => {
     return (
         <div>
             <h1>Recipes for "{search}"</h1>
-            <ul>
+            <div className="flex flex-wrap justify-center flex-row gap-4">
                 {recipes.map((recipe, index) => (
-                    <div
-                        key={recipe._id}
-                        className="bg-white shadow-lg rounded-lg p-6 border border-gray-200"
-                    >
-                        <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2">
-                            {recipe.Recipe_title}
-                        </h3>
-                        <p className="text-[#333333] mb-4">{recipe.description}</p>
-                        <a
-                            href={`/recipe/${recipe._id}`}
-                            className="inline-block py-2 px-4 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
-                        >
-                            View Recipe
-                        </a>
-                    </div>
+
+                    <Card key={recipe._id} title={recipe.Recipe_title} image={recipe.img_url} url={recipe.url} />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

@@ -30,16 +30,20 @@ const Navbar = () => {
         >
           Flavor Pairing
         </a>
+        <a
+          href="/pantry"
+          className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
+        >
+          Pantry
+        </a>
       </nav>
 
       <div className="flex items-center gap-4">
-        <a href="/pantry" className="text-[#333333] text-xl">
-          🔍
-        </a>
+
         {userInfo ? (
           <DropDown username={userInfo.name} />
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="m-3 bg-[#FDFDFD] rounded-md p-2">Login</Link>
         )}
       </div>
     </header>
