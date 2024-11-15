@@ -7,11 +7,11 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   return (
-    <header className="flex justify-between items-center p-4 bg-[#A3B9A2] border-b border-gray-300">
+    <header className="flex justify-between items-center p-1 bg-[#A3B9A2] border-b border-black ">
       <div className="text-2xl font-bold text-[#333333] grid grid-flow-col items-center">
         <div>
           <a href="/">
-            <img src={logo} className="h-20 w-140" />
+            <img src={logo} className="h-16 w-140" />
           </a>
         </div>
       </div>
