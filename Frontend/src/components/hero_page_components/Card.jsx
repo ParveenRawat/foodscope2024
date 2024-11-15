@@ -3,7 +3,7 @@ import React from 'react';
 
 const Card = ({ title, description, image, onViewRecipe, onViewDetails }) => {
     return (
-        <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
+        <div className="bg-white shadow-lg rounded-lg p-6 border w-96 border-gray-200">
             {/* Recipe Image */}
             <img
                 src={image}
@@ -12,7 +12,7 @@ const Card = ({ title, description, image, onViewRecipe, onViewDetails }) => {
             />
 
             {/* Recipe Title */}
-            <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2">{title}</h3>
+            <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2 max-w-sm">{title}</h3>
 
             {/* Recipe Description */}
             <p className="text-[#333333] mb-4">{description}</p>

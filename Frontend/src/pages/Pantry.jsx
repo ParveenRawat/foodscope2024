@@ -5,7 +5,8 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import Layout from "../components/layout/Layout";
 import axios from "axios";
 import { helix } from "ldrs";
-import Card from "../components/Card";
+import Card from "../components/hero_page_components/Card";
+import toast from "react-hot-toast";
 
 helix.register();
 
@@ -423,7 +424,8 @@ const Pantry = () => {
 
 		console.log(usedIngredients);
 
-		const response = await axios
+
+		axios
 			.post(
 				"https://cosylab.iiitd.edu.in/recipe-search/recipesByIngredient?page=10&pageSize=5",
 				{
@@ -432,23 +434,18 @@ const Pantry = () => {
 				{
 					withCredentials: false,
 				},
-			)
-			.catch((error) => {
-				console.log("Some error occured"), error;
-			});
+			).then((response) => {
+				if (response && response.data.payload) {
+					setSuggestedRecipes(response.data.payload.data)
+				} else {
+					setSuggestedRecipes([]);
+					toast.error("No recipes found :(")
+				}
 
-		console.log(response);
-
-		if (response) {
-			const recipes = response.data.payload.data;
-			console.log(recipes);
-
-			setSuggestedRecipes(recipes);
-		} else {
-			setSuggestedRecipes([]);
-		}
-
-		setShow(false);
+			}).catch((error) => {
+				console.log(error)
+			})
+		setShow(false)
 	};
 
 	const handleSearch = (item) => {
@@ -463,7 +460,7 @@ const Pantry = () => {
 		<section className="bg-[#FFF9ED] min-h-screen py-12">
 			<div className="max-w-7xl mx-auto px-6">
 				<h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">
-					My Pantry
+					<l-helix></l-helix>
 				</h2>
 
 				{/* Input to Add Ingredients */}
@@ -500,9 +497,7 @@ const Pantry = () => {
 				<div className="text-center">
 					<button
 						onClick={() => {
-							setShow(true);
 							generateRecipes();
-							setLoading(false);
 						}}
 						className="bg-[#A3B9A2] text-white font-bold py-3 px-6 rounded hover:bg-[#7A947A] transition duration-300"
 					>
@@ -524,7 +519,7 @@ const Pantry = () => {
 										title={item.Recipe_title}
 										key={index}
 										image={item.img_url}
-										url={item.url}
+									// url={item.url}
 									/>
 								))
 							) : (
