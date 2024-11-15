@@ -1,100 +1,79 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
-import { setCredentials } from "../redux/slices/authSlice";
+import React, { useState } from "react";
 import axios from "axios";
+import Layout from "../components/layout/Layout";
 
-const Login = () => {
+const RecipeGenerator = () => {
+  const [ingredients, setIngredients] = useState("");
+  const [recipe, setRecipe] = useState(null);
+  const [error, setError] = useState(null);
 
-    const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { userInfo } = useSelector((state) => state.auth);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
-  }, [navigate, userInfo]);
-
-  const loginUser = async (e) => {
-    e.preventDefault();
+  const handleGenerateRecipe = async () => {
     try {
-      const { data } = await axios.post("/login", {
-        email,
-        password,
-      },{withCredentials:true});
-
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        
-        setEmail("");
-        setPassword("");
-        toast.success("Login Successful!");
-        dispatch(setCredentials({name:data.name, email:data.email}));        
-        navigate("/");
-      }
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post("http://127.0.0.1:5000/generate-recipe", {
+        ingredients,
+        model: "llama3-8b-8192",
+      });
+      setRecipe(response.data.recipe);
+      setError(null);
+    } catch (err) {
+      setError("Failed to generate recipe. Please try again.");
+      setRecipe(null);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#FFF9ED] p-6">
-        <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full border border-gray-200">
-            <h2 className="text-2xl font-bold text-[#333333] mb-6 text-center">Login</h2>
-            
-            <form onSubmit={loginUser}>
-                <div className="mb-4">
-                    <label className="block text-[#4D5D4B] font-bold mb-2" htmlFor="email">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        className="w-full p-3 border border-gray-300 rounded bg-[#FFF9ED] text-[#333333] focus:outline-none focus:border-[#A3B9A2]"
-                        placeholder="Enter your email"
-                        value={email}
-            onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
+    <div className="bg-cream min-h-screen flex flex-col items-center py-10 px-4">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Recipe Generator</h1>
 
-                <div className="mb-6">
-                    <label className="block text-[#4D5D4B] font-bold mb-2" htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        className="w-full p-3 border border-gray-300 rounded bg-[#FFF9ED] text-[#333333] focus:outline-none focus:border-[#A3B9A2]"
-                        placeholder="Enter your password"
-                        value={password}
-            onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-
-                <button
-                    type="submit"
-                    className="w-full py-3 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
-                >
-                    Login
-                </button>
-            </form>
-            
-            <p className="mt-6 text-center text-[#4D5D4B]">
-                Don't have an account?{" "}
-                <a href="/register" className="font-bold text-[#A3B9A2] hover:text-[#333333]">
-                    Sign up
-                </a>
-            </p>
+      {/* Combined Input and Output Container */}
+      <div className="w-full max-w-lg bg-white rounded-lg shadow p-6">
+        {/* Input Form */}
+        <div className="mb-6">
+          <label
+            className="block mb-2"
+            style={{
+              color: "#4D5D4B",
+              fontSize: "16px",
+              fontFamily: "Roboto, sans-serif",
+            }}
+          >
+            Enter Ingredients:
+          </label>
+          <textarea
+            className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows="4"
+            placeholder="e.g., tomato, basil, mozzarella"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+          ></textarea>
+          <button
+            onClick={handleGenerateRecipe}
+            className="w-full text-white py-2 px-4 rounded-lg"
+            style={{ backgroundColor: "#E27D60" }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#d66a4d")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "#E27D60")}
+          >
+            Generate Recipe
+          </button>
         </div>
+
+        {/* Output Section */}
+        {recipe && (
+          <div className="border-t border-gray-300 pt-4">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">Recipe Suggestion</h2>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {recipe}
+            </p>
+          </div>
+        )}
+
+        {/* Error Message */}
+        {error && (
+          <div className="mt-4 text-red-600 font-medium">{error}</div>
+        )}
+      </div>
     </div>
-);
+  );
 };
 
-export default Login;
+export default Layout()(RecipeGenerator);

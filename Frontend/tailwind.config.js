@@ -11,6 +11,7 @@ export default {
         green: "#A3B9A2",
         forest: "#4D5D4B",
         jade: "#333333",
+        sun: "#E27D60"
       },
       fontFamily: {
       // 'sans': ['ui-sans-serif', 'system-ui', ],
