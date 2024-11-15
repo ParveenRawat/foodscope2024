@@ -2,14 +2,13 @@ import React from "react";
 import DropDown from "../dropdown/DropDown";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import logo from "../../../public/logo.png"
 const Navbar = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   return (
     <header className="flex justify-between items-center p-4 bg-[#A3B9A2] border-b border-gray-300">
-      <div className="text-2xl font-bold text-[#333333]">
-        <a href="/"> Recipe App</a>
-      </div>
+      <div className="text-2xl font-bold text-[#333333] grid grid-flow-col items-center"><div><img src={logo} className="h-20 w-140"/></div></div>
 
       <nav className="flex gap-5">
         <a

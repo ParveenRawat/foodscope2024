@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import react from "react";
+import Modal from "../modal/Modal";
 function Hero() {
 
     const [imgUrl, setImgUrl ] = useState("")
+    const [recipeTitle, setRecipeTitle] = useState("")
+    const [recipeUrl, setRecipeUrl ] = useState("")
 
     useEffect(() => {
-        // axios.get("https://foodapi-eilc.onrender.com/recipeOftheDay").then((response) => {
-        //     setImgUrl(response.data.payload.img_url)
-        //     console.log(response.data.payload.img_url)
-           
-        // })
-        axios.get("https://official-joke-api.appspot.com/random_joke").then((response) => {
-            console.log(response)
+        axios.get("https://cosylab.iiitd.edu.in/recipe/recipeOftheDay").then((response) => {
+            setImgUrl(response.data.payload.img_url)
+            setRecipeTitle(response.data.payload.Recipe_title)
+            setRecipeUrl(response.data.payload.url)            
            
         })
+    
     },[])
 
     return (
@@ -33,23 +34,24 @@ function Hero() {
                        
                     </div>
                     <div className="md:w-1/2 md:pl-8">
-                        <h3 className="text-2xl font-bold text-[#4D5D4B] mb-4">Spicy Chicken Tacos</h3>
+                        <h3 className="text-2xl font-bold text-[#4D5D4B] mb-4">{recipeTitle}</h3>
                         <p className="text-[#333333] mb-6">
                             A perfect combination of spicy chicken, fresh veggies, and a delicious taco sauce. A quick and easy recipe for any occasion.
                         </p>
                         <div className="flex gap-4">
                             <a
-                                href="#recipe"
+                                href={recipeUrl}
                                 className="inline-block py-3 px-6 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
                             >
                                 View Recipe
                             </a>
-                            <a
+                            {/* <a
                                 href="#ingredients"
                                 className="inline-block py-3 px-6 bg-[#DAB785] text-[#333333] font-bold rounded hover:bg-[#C49A6C] transition duration-300"
                             >
                                 See Ingredients
-                            </a>
+                            </a> */}
+<Modal title="testing" desc="test desc"/>
                         </div>
                     </div>
                 </div>
