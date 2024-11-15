@@ -6,7 +6,7 @@ import { helix } from "ldrs";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import Layout from "../components/layout/Layout";
-import Card from "../components/Card";
+import Card from "../components/hero_page_components/Card";
 
 import { pantryItems } from "../constants/constants";
 
@@ -85,7 +85,7 @@ const Pantry = () => {
 		<section className="bg-[#FFF9ED] min-h-screen py-12">
 			<div className="max-w-7xl mx-auto px-6">
 				<h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">
-					<l-helix></l-helix>
+					My Pantry
 				</h2>
 
 				{/* Input to Add Ingredients */}
