@@ -7,7 +7,9 @@ const Navbar = () => {
 
   return (
     <header className="flex justify-between items-center p-4 bg-[#A3B9A2] border-b border-gray-300">
-      <div className="text-2xl font-bold text-[#333333]">Recipe App</div>
+      <div className="text-2xl font-bold text-[#333333]">
+        <a href="/"> Recipe App</a>
+      </div>
 
       <nav className="flex gap-5">
         <a
@@ -25,7 +27,7 @@ const Navbar = () => {
       </nav>
 
       <div className="flex items-center gap-4">
-        <a href="search" className="text-[#333333] text-xl">
+        <a href="/pantry" className="text-[#333333] text-xl">
           🔍
         </a>
         {userInfo ? (

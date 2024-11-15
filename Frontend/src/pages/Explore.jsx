@@ -1,19 +1,20 @@
 // ExplorePage.js
-import React, { useState } from 'react';
-import { recipesData } from './recipesData';
+import React, { useState } from "react";
+import { recipesData } from "./recipesData";
+import Layout from "../components/layout/Layout";
 
 const Explore = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
     const [filteredRecipes, setFilteredRecipes] = useState(recipesData);
 
     // Function to handle the search input
     const handleSearch = (event) => {
         const term = event.target.value;
         setSearchTerm(term);
-        
+
         // Filter the recipes based on the search term
-        const filtered = recipesData.filter(recipe =>
-            recipe.name.toLowerCase().includes(term.toLowerCase())
+        const filtered = recipesData.filter((recipe) =>
+            recipe.name.toLowerCase().includes(term.toLowerCase()),
         );
         setFilteredRecipes(filtered);
     };
@@ -21,7 +22,9 @@ const Explore = () => {
     return (
         <section className="bg-[#FFF9ED] min-h-screen py-12">
             <div className="max-w-7xl mx-auto px-6">
-                <h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">Explore Recipes</h2>
+                <h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">
+                    Explore Recipes
+                </h2>
 
                 {/* Search Bar */}
                 <div className="flex justify-center mb-8">
@@ -37,9 +40,14 @@ const Explore = () => {
                 {/* Recipes List */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredRecipes.length > 0 ? (
-                        filteredRecipes.map(recipe => (
-                            <div key={recipe.id} className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
-                                <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2">{recipe.name}</h3>
+                        filteredRecipes.map((recipe) => (
+                            <div
+                                key={recipe.id}
+                                className="bg-white shadow-lg rounded-lg p-6 border border-gray-200"
+                            >
+                                <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2">
+                                    {recipe.name}
+                                </h3>
                                 <p className="text-[#333333] mb-4">{recipe.description}</p>
                                 <a
                                     href={`/recipe/${recipe.id}`}
@@ -50,7 +58,9 @@ const Explore = () => {
                             </div>
                         ))
                     ) : (
-                        <p className="text-[#333333] text-center col-span-full">No recipes found.</p>
+                        <p className="text-[#333333] text-center col-span-full">
+                            No recipes found.
+                        </p>
                     )}
                 </div>
             </div>
@@ -58,4 +68,4 @@ const Explore = () => {
     );
 };
 
-export default Explore;
+export default Layout()(Explore);
