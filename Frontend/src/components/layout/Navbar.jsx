@@ -26,7 +26,7 @@ const Navbar = () => {
       </nav>
 
       <div className="flex items-center gap-4">
-        <a href="search" className="text-[#333333] text-xl">
+        <a href="/pantry" className="text-[#333333] text-xl">
           🔍
         </a>
         {userInfo ? (

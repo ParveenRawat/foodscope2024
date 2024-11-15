@@ -8,7 +8,6 @@ const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Search = lazy(() => import("./pages/Search"));
 const Explore = lazy(() => import("./pages/Explore"));
 const Pantry = lazy(() => import("./pages/Pantry"))
 const Quiz = lazy(() => import("./pages/Quiz"))
@@ -19,7 +18,7 @@ const App = () => {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
   useEffect(() => {
-    axios.get("/profile",{withCredentials:true}).then((response) => {
+    axios.get("/profile", { withCredentials: true }).then((response) => {
       if (response.data == null && userInfo) {
         dispatch(logout());
       }
@@ -34,7 +33,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/search" element={<Search />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/pantry" element={<Pantry />} />
             <Route path="/quiz" element={<Quiz />} />
