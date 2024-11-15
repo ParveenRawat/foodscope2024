@@ -22,6 +22,10 @@ export default {
       // doto: ["Doto","sans-serif"]
       headings: ["Poppins", "sans-serif"],
       content: ["Roboto", "sans-serif"]
+    },
+    backgroundImage: {
+      'hero-pattern': "url('/img/hero-pattern.svg')",
+      'footer-texture': "url('/img/footer-texture.png')",
     }
     },
   },

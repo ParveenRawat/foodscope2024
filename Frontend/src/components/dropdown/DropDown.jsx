@@ -5,8 +5,9 @@ import axios from "axios";
 export default function DropDown({ username }) {
   const dispatch = useDispatch();
 
-  const logoutUser = async () => {
-    const response = axios.get("/logout");
+  const logoutUser = async (e) => {
+    e.preventDefault()
+    const response = axios.get("/logout",{withCredentials:true});
     dispatch(logout());
   };
 

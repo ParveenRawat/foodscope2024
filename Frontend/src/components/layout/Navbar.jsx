@@ -11,7 +11,7 @@ const Navbar = () => {
 
       <nav className="flex gap-5">
         <a
-          href="explore-recipes"
+          href="/explore"
           className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
         >
           Explore Recipes
