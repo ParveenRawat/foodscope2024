@@ -7,12 +7,14 @@ function Hero() {
     const [imgUrl, setImgUrl ] = useState("")
     const [recipeTitle, setRecipeTitle] = useState("")
     const [recipeUrl, setRecipeUrl ] = useState("")
+    const [res, setRes] = useState({})
 
     useEffect(() => {
         axios.get("https://cosylab.iiitd.edu.in/recipe/recipeOftheDay").then((response) => {
             setImgUrl(response.data.payload.img_url)
             setRecipeTitle(response.data.payload.Recipe_title)
-            setRecipeUrl(response.data.payload.url)            
+            setRecipeUrl(response.data.payload.url)        
+            setRes(response)    
            
         })
     
@@ -44,14 +46,8 @@ function Hero() {
                                 className="inline-block py-3 px-6 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
                             >
                                 View Recipe
-                            </a>
-                            {/* <a
-                                href="#ingredients"
-                                className="inline-block py-3 px-6 bg-[#DAB785] text-[#333333] font-bold rounded hover:bg-[#C49A6C] transition duration-300"
-                            >
-                                See Ingredients
-                            </a> */}
-<Modal title="testing" desc="test desc"/>
+                            </a>                          
+                            <Modal title="testing" desc="test desc" res={res}/>
                         </div>
                     </div>
                 </div>
