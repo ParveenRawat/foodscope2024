@@ -3,6 +3,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "20px",
+          lg: "100px",
+        },
+      },
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
       },
@@ -11,7 +18,7 @@ export default {
         green: "#A3B9A2",
         forest: "#4D5D4B",
         jade: "#333333",
-        sun: "#E27D60"
+        sun: "#E27D60",
       },
       fontFamily: {
         // 'sans': ['ui-sans-serif', 'system-ui', ],
