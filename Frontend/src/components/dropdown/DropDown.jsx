@@ -7,27 +7,27 @@ export default function DropDown({ username }) {
 
   const logoutUser = async (e) => {
     e.preventDefault()
-    const response = axios.get("/logout",{withCredentials:true});
+    const response = axios.get("/logout", { withCredentials: true });
     dispatch(logout());
   };
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left mr-2 ">
       <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+        <MenuButton className="inline-flex w-full p-2 justify-center bg-[#6B796E] rounded-md  text-[#C7E7CD] shadow-sm hover:bg-gray-[#697E6D]">
           {username}
         </MenuButton>
       </div>
 
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+        className="absolute right-0 z-10 mt-2  w-56 origin-top-right rounded-md bg-[#6B796E] shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
       >
         <div className="py-1">
           <MenuItem>
             <a
               href="/dashboard"
-              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+              className="block px-4 py-2 text-sm text-[#C7E7CD] data-[focus]:bg-[#e9ffb9] data-[focus]:text-gray-900"
             >
               Account settings
             </a>
@@ -35,7 +35,7 @@ export default function DropDown({ username }) {
           <MenuItem>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+              className="block px-4 py-2 text-sm text-[#C7E7CD] data-[focus]:bg-[#e9ffb9] data-[focus]:text-gray-900"
             >
               Support
             </a>
@@ -43,7 +43,7 @@ export default function DropDown({ username }) {
           <MenuItem>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+              className="block px-4 py-2 text-sm text-[#C7E7CD] data-[focus]:bg-[#e9ffb9] data-[focus]:text-gray-900"
             >
               My Pantry
             </a>
@@ -52,7 +52,7 @@ export default function DropDown({ username }) {
             <MenuItem>
               <button
                 type="submit"
-                className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+                className="block w-full px-4 py-2 text-left text-sm text-[#C7E7CD] data-[focus]:bg-[#e9ffb9] data-[focus]:text-gray-900"
                 onClick={logoutUser}
               >
                 Sign out

@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="text-2xl font-bold text-[#333333] grid grid-flow-col items-center">
         <div>
           <a href="/">
-            <img src={logo} className="h-16 scale-150 w-140 pl-16 m-1" />
+            <img src={logo} className="h-16 scale-150 w-32 pl-16 m-1" />
           </a>
         </div>
       </div>
@@ -29,16 +29,20 @@ const Navbar = () => {
         >
           Flavor Pairing
         </a>
+        <a
+          href="/pantry"
+          className="text-[#4D5D4B] font-bold px-3 py-2 hover:text-[#333333] transition duration-300"
+        >
+          Pantry
+        </a>
       </nav>
 
       <div className="flex items-center gap-4">
-        <a href="/pantry" className="text-[#333333] text-xl">
-          🔍
-        </a>
+
         {userInfo ? (
           <DropDown username={userInfo.name} />
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="mr-2 bg-[#6B796E] rounded-md p-2 text-[#C7E7CD]">Login</Link>
         )}
       </div>
     </header>

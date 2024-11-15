@@ -146,7 +146,7 @@ const Pantry = () => {
 										title={item.Recipe_title}
 										key={index}
 										image={item.img_url}
-									// url={item.url}
+										url={item.url}
 									/>
 								))
 							) : (
