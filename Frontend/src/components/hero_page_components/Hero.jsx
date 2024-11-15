@@ -15,7 +15,7 @@ function Hero() {
             setRecipeTitle(response.data.payload.Recipe_title)
             setRecipeUrl(response.data.payload.url)
             setRes(response)
-            console.log(response)
+            
 
         })
 

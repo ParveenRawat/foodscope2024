@@ -1,8 +1,8 @@
 // RecipeCard.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const Card = ({ title, description, image, url, onViewDetails }) => {
+import Modal from '../modal/Modal';
+const Card = ({ title, description, image, url, res }) => {
 
     const navigate = useNavigate();
     return (
@@ -28,12 +28,7 @@ const Card = ({ title, description, image, url, onViewDetails }) => {
                 >
                     View Recipe
                 </a>
-                <button
-                    onClick={onViewDetails}
-                    className="py-2 px-4 bg-[#A3B9A2] text-white font-bold rounded hover:bg-[#7A947A] transition duration-300"
-                >
-                    View Details
-                </button>
+                <Modal title="badf" res={res}/> 
             </div>
         </div>
     );

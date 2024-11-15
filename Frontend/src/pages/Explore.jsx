@@ -122,16 +122,19 @@ const Explore = () => {
                 {/* Recipes List */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredRecipes.length > 0 ? (
-                        filteredRecipes.map((recipe) => (
-                            <Card
-                                key={recipe.id}
-                                title={recipe.name}
-                                description={recipe.description}
-                                image={recipe.image} // Ensure your `recipesData` includes `image`
-                                onViewRecipe={() => alert(`View Recipe: ${recipe.name}`)}
-                                onViewDetails={() => alert(`View Details: ${recipe.name}`)}
-                            />
-                        ))
+                        filteredRecipes.map((recipe) => {
+
+                            return (
+                                <Card
+                                    key={recipe.id}
+                                    title={recipe.name}
+                                    description={recipe.description}
+                                    image={recipe.image} // Ensure your `recipesData` includes `image`
+                                    url={recipe.url}
+                                    res={recipe}
+                                />
+                            )
+                        })
                     ) : (
                         <p className="text-[#333333] text-center col-span-full">
                             <FindRecipe search={searchTerm} />

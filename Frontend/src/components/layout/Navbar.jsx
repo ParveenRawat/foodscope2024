@@ -42,7 +42,7 @@ const Navbar = () => {
         {userInfo ? (
           <DropDown username={userInfo.name} />
         ) : (
-          <Link to="/login" className="m-3 bg-[#FDFDFD] rounded-md p-2">Login</Link>
+          <Link to="/login" className="mr-2 bg-[#6B796E] rounded-md p-2 text-[#C7E7CD]">Login</Link>
         )}
       </div>
     </header>
