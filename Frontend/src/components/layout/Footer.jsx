@@ -1,7 +1,7 @@
 // Footer.js
 import React from "react";
 import {
-  FaFacebookF,
+  FaFacebook,
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#A3B9A2] py-8 mt-12">
+    <footer className="bg-[#A3B9A2] py-8">
       <div className="max-w-7xl mx-auto px-6 text-center md:text-left">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start ">
           {/* Logo and Description */}
@@ -28,7 +28,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-[#4D5D4B] hover:text-[#333333] transition duration-300"
             >
-              <FaFacebookF size={20} />
+              <FaFacebook size={20} />
             </a>
             <a
               href="https://twitter.com"
