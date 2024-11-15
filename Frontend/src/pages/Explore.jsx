@@ -2,6 +2,14 @@
 import React, { useState } from "react";
 import { recipesData } from "./recipesData";
 import Layout from "../components/layout/Layout";
+import axios from "axios";
+
+axios
+    .get("https://cosylab.iiitd.edu.in/recipe/" + 5)
+    .then((Response) => {
+        console.log(Response);
+    })
+    .catch(console.log("Some Error Occured"));
 
 const Explore = () => {
     const [searchTerm, setSearchTerm] = useState("");
