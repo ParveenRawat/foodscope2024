@@ -1,15 +1,18 @@
 import React from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
-export default function Modal({ title, desc }) {
+import axios from 'axios'
+export default function Modal({title,res}) { 
+
+
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
       <button
-        className="bg-[#DAB785] rounded-full h-8 w-8 my-auto text-center justify-center hover:bg-[#C49A6C] transition duration-300"
+        className="bg-[#DAB785] rounded-full my-auto w-8 h-8 text-center justify-center hover:bg-[#C49A6C] transition duration-300" 
         type="button"
         onClick={() => setShowModal(true)}
-      >
-        <IoInformationCircleOutline className="p-0 m-auto size-6" />
+      > 
+        <IoInformationCircleOutline className="p-0 m-auto size-6"/>
       </button>
 
       {showModal ? (
@@ -32,10 +35,10 @@ export default function Modal({ title, desc }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto overflow-y-auto max-h-64">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    {desc}
-                  </p>
-                </div>
+  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+    {res.data.payload.Continent}
+  </p>
+</div>
 
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">

@@ -1,9 +1,10 @@
 import React from "react";
 import DropDown from "../dropdown/DropDown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../../../public/logo.png";
+import logo from "../../logo.png"
 const Navbar = () => {
+  const navigate = useNavigate()
   const { userInfo } = useSelector((state) => state.auth);
 
   return (

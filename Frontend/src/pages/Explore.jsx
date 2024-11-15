@@ -1,6 +1,7 @@
 // ExplorePage.js
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/Layout";
+import Card from "../components/hero_page_components/Card"; // Import the Card component
 import axios from "axios";
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
@@ -107,7 +108,7 @@ const Explore = () => {
 
         // Filter the recipes based on the search term
         const filtered = recipesData.filter((recipe) =>
-            recipe.name.toLowerCase().includes(term.toLowerCase()),
+            recipe.name.toLowerCase().includes(term.toLowerCase())
         );
         setFilteredRecipes(filtered);
     };
@@ -134,21 +135,14 @@ const Explore = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredRecipes.length > 0 ? (
                         filteredRecipes.map((recipe) => (
-                            <div
+                            <Card
                                 key={recipe.id}
-                                className="bg-white shadow-lg rounded-lg p-6 border border-gray-200"
-                            >
-                                <h3 className="text-2xl font-bold text-[#4D5D4B] mb-2">
-                                    {recipe.name}
-                                </h3>
-                                <p className="text-[#333333] mb-4">{recipe.description}</p>
-                                <a
-                                    href={`/recipe/${recipe.id}`}
-                                    className="inline-block py-2 px-4 bg-[#E27D60] text-white font-bold rounded hover:bg-[#C2583A] transition duration-300"
-                                >
-                                    View Recipe
-                                </a>
-                            </div>
+                                title={recipe.name}
+                                description={recipe.description}
+                                image={recipe.image} // Ensure your `recipesData` includes `image`
+                                onViewRecipe={() => alert(`View Recipe: ${recipe.name}`)}
+                                onViewDetails={() => alert(`View Details: ${recipe.name}`)}
+                            />
                         ))
                     ) : (
                         <p className="text-[#333333] text-center col-span-full">

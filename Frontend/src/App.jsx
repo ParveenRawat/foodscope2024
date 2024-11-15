@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="bg-cream">
       <BrowserRouter>
-        <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+        <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
         <Suspense>
           <Routes>
             <Route path="/" element={<Home />} />
