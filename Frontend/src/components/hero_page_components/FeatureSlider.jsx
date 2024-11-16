@@ -8,21 +8,21 @@ const FeatureSlider = () => {
             title: "Explore Recipes",
             description: "Discover new and exciting recipes tailored to your taste.",
             buttonText: "Go to Explore",
-            link: "#explore-recipes",
+            link: "/explore",
         },
         {
-            title: "Flavor Pairing",
+            title: "Fusion Feast",
             description:
-                "Find unique and surprising flavor combinations to enhance your dishes.",
-            buttonText: "Go to Flavor Pairing",
-            link: "#flavor-pairing",
+                "Get creative and unique dishes with the ingredients of your choice with our AI.",
+            buttonText: "Go to Fusion Feast",
+            link: "/fusionfeast",
         },
         {
             title: "My Pantry",
             description:
                 "Get recipe suggestions based on ingredients you already have.",
             buttonText: "Go to My Pantry",
-            link: "#my-pantry",
+            link: "/pantry",
         },
         {
             title: "Nutritional Insights",

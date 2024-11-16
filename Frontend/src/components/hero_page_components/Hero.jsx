@@ -43,9 +43,9 @@ function Hero() {
                 <div className="flex -translate-y-44 flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-lg">
                     <div className="md:w-1/2 mb-6 md:mb-0">
                         <img
-                            src={imgUrl} // Placeholder image for the recipe
+                            src="https://images.pexels.com/photos/16845755/pexels-photo-16845755/free-photo-of-ready-to-eat-meat-with-rice-on-a-frying-pan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" // Placeholder image for the recipe
                             alt="Recipe of the Day"
-                            className="h-72 rounded-lg"
+                            className="h-72 rounded-lg mx-auto"
                         />
                     </div>
                     <div className="md:w-1/2 md:pl-8">
