@@ -8,12 +8,6 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { dishes } from "../constants/constants";
 import { recipesData } from "./recipesData";
 
-axios
-    .get("https://cosylab.iiitd.edu.in/recipe/" + 5)
-    .then((Response) => {
-        console.log(Response);
-    })
-    .catch(console.log("Some Error Occured"));
 function removeTags(input) {
     return input.replace(/<\/?[^>]+(>|$)/g, ""); // Regex to match and remove HTML tags
 }
@@ -42,7 +36,6 @@ const FindRecipe = ({ search }) => {
                     const fetchedRecipes = response.data.payload.data;
                     console.log("Fetched Recipes:", fetchedRecipes);
                     setRecipes(fetchedRecipes);
-
                 } else {
                     console.log("No recipes found in the response.");
                     setRecipes([]);
@@ -74,11 +67,14 @@ const FindRecipe = ({ search }) => {
 
     return (
         <div>
-            <h1>Recipes for "{search}"</h1>
             <div className="flex flex-wrap justify-center flex-row gap-4">
                 {recipes.map((recipe, index) => (
-
-                    <Card key={recipe._id} title={recipe.Recipe_title} image={recipe.img_url} url={recipe.url} />
+                    <Card
+                        key={recipe._id}
+                        title={recipe.Recipe_title}
+                        image={recipe.img_url}
+                        url={recipe.url}
+                    />
                 ))}
             </div>
         </div>
@@ -102,7 +98,7 @@ const Explore = () => {
     };
 
     return (
-        <section className="bg-[#FFF9ED] min-h-screen py-12">
+        <section className="min-h-screen py-12  bg-gradient-to-b from-green to-green via-cream">
             <div className="max-w-7xl mx-auto px-6">
                 <h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">
                     Explore Recipes
@@ -123,7 +119,6 @@ const Explore = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredRecipes.length > 0 ? (
                         filteredRecipes.map((recipe) => {
-
                             return (
                                 <Card
                                     key={recipe.id}
@@ -133,7 +128,7 @@ const Explore = () => {
                                     url={recipe.url}
                                     res={recipe}
                                 />
-                            )
+                            );
                         })
                     ) : (
                         <p className="text-[#333333] text-center col-span-full">
@@ -146,16 +141,4 @@ const Explore = () => {
     );
 };
 
-//
-// <header className="App-header">
-//                         <div style={{ width: 400 }}>
-//                             <ReactSearchAutocomplete
-//                                 onSelect={(item) => {
-//                                     setSearchTerm(item.name);
-//                                     handleSearch(item);
-//                                 }}
-//                                 items={dishes}
-//                             />
-//                         </div>
-//                     </header>
 export default Layout()(Explore);

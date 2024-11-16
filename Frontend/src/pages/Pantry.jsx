@@ -1,7 +1,7 @@
 // Pantry.js
 import React, { useState } from "react";
 import axios from "axios";
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 import { helix } from "ldrs";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
@@ -64,7 +64,7 @@ const Pantry = () => {
 			} else {
 				console.log("No recipes found in the response.");
 				setSuggestedRecipes([]);
-				toast.error("No recipes found :(")
+				toast.error("No recipes found :(");
 			}
 		} catch (error) {
 			console.error("An error occurred while fetching recipes:", error);
@@ -83,7 +83,7 @@ const Pantry = () => {
 	};
 
 	return (
-		<section className="bg-[#FFF9ED] min-h-screen py-12">
+		<section className="  bg-gradient-to-b from-green to-green via-cream min-h-screen py-12">
 			<div className="max-w-7xl mx-auto px-6">
 				<h2 className="text-3xl font-bold text-[#333333] mb-8 text-center">
 					My Pantry
