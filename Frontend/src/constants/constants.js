@@ -45,7 +45,7 @@ const pantryItems = [
   },
   {
     id: 11,
-    name: "Onions",
+    name: "Onion",
   },
   {
     id: 12,

@@ -48,7 +48,7 @@ const Pantry = () => {
 
 		try {
 			const response = await axios.post(
-				"https://cosylab.iiitd.edu.in/recipe-search/recipesByIngredient?page=10&pageSize=10",
+				"https://cosylab.iiitd.edu.in/recipe-search/recipesByIngredient?page=10&pageSize=5",
 				{
 					ingredientUsed: usedIngredients,
 				},

@@ -39,8 +39,8 @@ const RecipeGenerator = () => {
   };
 
   return (
-    <div className="bg-cream min-h-screen flex flex-col items-center py-10 px-4">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Recipe Generator</h1>
+    <div className="bg-gradient-to-b from-green to-green via-cream min-h-screen flex flex-col items-center py-10 px-4">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Fusion Feast</h1>
 
       {/* Combined Input and Output Container */}
       <div className="w-full max-w-lg bg-white rounded-lg shadow p-6">

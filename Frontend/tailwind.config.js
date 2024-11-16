@@ -32,8 +32,7 @@ export default {
         content: ["Roboto", "sans-serif"],
       },
       backgroundImage: {
-        "hero-pattern": "url('/img/hero-pattern.svg')",
-        "footer-texture": "url('/img/footer-texture.png')",
+        'card-bg': "url('/taco.jpg')",
       },
     },
   },

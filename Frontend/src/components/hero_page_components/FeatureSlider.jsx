@@ -8,21 +8,21 @@ const FeatureSlider = () => {
             title: "Explore Recipes",
             description: "Discover new and exciting recipes tailored to your taste.",
             buttonText: "Go to Explore",
-            link: "#explore-recipes",
+            link: "/explore",
         },
         {
-            title: "Flavor Pairing",
+            title: "Fusion Feast",
             description:
-                "Find unique and surprising flavor combinations to enhance your dishes.",
-            buttonText: "Go to Flavor Pairing",
-            link: "#flavor-pairing",
+                "Get creative and unique dishes with the ingredients of your choice with our AI.",
+            buttonText: "Go to Fusion Feast",
+            link: "/fusionfeast",
         },
         {
             title: "My Pantry",
             description:
                 "Get recipe suggestions based on ingredients you already have.",
             buttonText: "Go to My Pantry",
-            link: "#my-pantry",
+            link: "/pantry",
         },
         {
             title: "Nutritional Insights",
@@ -45,16 +45,17 @@ const FeatureSlider = () => {
     };
 
     return (
-        <section className="bg-[#FFF9ED] py-60">
+        <section className="bg-[#FFF9ED] py-12 -translate-y-16">
             <div className="max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-[#333333] mb-8">Our Features</h2>
                 <Slider {...settings}>
                     {features.map((feature, index) => (
                         <div key={index} className="p-4 ">
-                            <div className=" shadow-lg rounded-lg p-8 border border-gray-200 max-w-lg mx-auto">
+                            <div className="bg-[#d7eea7] shadow-lg rounded-lg p-8 border border-gray-200 max-w-lg mx-auto">
                                 <h3 className="text-2xl font-bold text-[#4D5D4B] mb-4">
                                     {feature.title}
                                 </h3>
+
                                 <p className="text-[#333333] mb-6">{feature.description}</p>
                                 <a
                                     href={feature.link}
