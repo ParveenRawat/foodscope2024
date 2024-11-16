@@ -37,10 +37,10 @@ function Hero() {
             className="bg-[#D9E4DD] overflow-x-clip bg-gradient-to-b from-[#94a372]  to-[#FFF9ED]  pb-20"
         >
             <div className="max-w-7xl mx-auto px-6">
-                <h2 className="text-[80px] font-bold top-80 text-[#333333] text-center font-doto mb-12 -translate-y-16">
+                <h2 className="text-[80px] font-bold top-80 text-[#333333] text-center font-doto mb-12 -translate-y-44">
                     Recipe of the Day
                 </h2>
-                <div className="flex flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-lg">
+                <div className="flex -translate-y-44 flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-lg">
                     <div className="md:w-1/2 mb-6 md:mb-0">
                         <img
                             src={imgUrl} // Placeholder image for the recipe
@@ -74,7 +74,7 @@ function Hero() {
                     alt="Food Image"
                     height={600}
                     width={600}
-                    className="absolute -right-52 -top-72 hidden  md:block"
+                    className="absolute -right-52 -top-96 hidden  md:block"
                     style={{
                         translateY,
                     }}
@@ -84,7 +84,7 @@ function Hero() {
                     alt="Food Image"
                     height={600}
                     width={600}
-                    className="absolute -left-60 -top-[400px] hidden md:block"
+                    className="absolute -left-60 -top-[800px] hidden md:block"
                     style={{
                         translateY,
                     }}

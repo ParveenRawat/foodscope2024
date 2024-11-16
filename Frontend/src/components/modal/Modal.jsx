@@ -6,15 +6,15 @@ export default function Modal({ title, res }) {
   const [showModal, setShowModal] = React.useState(false);
 
   // Safely access data from `res` or set defaults
-  const payload = res?.Calories || {}; // Use an empty object as fallback
-  console.log(res)
+  const payload = res?.data?.payload || {}; // Use an empty object as fallback
+
   // Calculate percentages (ensure payload values exist)
   const dailyCalories = 2000; // Daily recommended calories
   const dailyProtein = 50;    // Daily recommended protein (g)
   const dailyEnergy = 2500;   // Daily recommended energy (kcal)
 
   const percentCalories = payload.Calories
-    ? ((parseFloat(payload) / dailyCalories) * 100).toFixed(1)
+    ? ((parseFloat(payload.Calories) / dailyCalories) * 100).toFixed(1)
     : 0;
 
   const percentProtein = payload["Protein (g)"]

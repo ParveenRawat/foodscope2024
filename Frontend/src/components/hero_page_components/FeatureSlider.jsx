@@ -45,16 +45,17 @@ const FeatureSlider = () => {
     };
 
     return (
-        <section className="bg-[#FFF9ED] py-12">
+        <section className="bg-[#FFF9ED] py-12 -translate-y-16">
             <div className="max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-[#333333] mb-8">Our Features</h2>
                 <Slider {...settings}>
                     {features.map((feature, index) => (
                         <div key={index} className="p-4 ">
-                            <div className=" shadow-lg rounded-lg p-8 border border-gray-200 max-w-lg mx-auto">
+                            <div className="bg-[#d7eea7] shadow-lg rounded-lg p-8 border border-gray-200 max-w-lg mx-auto">
                                 <h3 className="text-2xl font-bold text-[#4D5D4B] mb-4">
                                     {feature.title}
                                 </h3>
+
                                 <p className="text-[#333333] mb-6">{feature.description}</p>
                                 <a
                                     href={feature.link}
