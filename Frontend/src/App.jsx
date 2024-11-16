@@ -9,9 +9,10 @@ const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Explore = lazy(() => import("./pages/Explore"));
-const Pantry = lazy(() => import("./pages/Pantry"))
-const Quiz = lazy(() => import("./pages/Quiz"))
-const Experimental = lazy(() => import("./pages/Experimental"))
+const Pantry = lazy(() => import("./pages/Pantry"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+const Experimental = lazy(() => import("./pages/Experimental"));
+const MOTD = lazy(() => import("./pages/MOTD"));
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = false;
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/explore" element={<Explore />} />
             <Route path="/pantry" element={<Pantry />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/MOTD" element={<MOTD />} />
             <Route path="/experimental" element={<Experimental />} />
 
             <Route path="*" element={<NotFound />} />

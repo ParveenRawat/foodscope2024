@@ -30,7 +30,7 @@ export const Header = () => {
             <p className="mt-6 text-xl tracking-tight text-[#010d3E]"></p>
             <div className="mt-[30px] flex items-center gap-1">
               <button className="btn btn-primary">
-                <span className="text-left">
+                <span className="justify-start">
                   Welcome to our Recipe Hub, where culinary creativity meets
                   simplicity. Whether you're a seasoned chef or a beginner in
                   the kitchen, you'll find a wide variety of easy-to-follow
