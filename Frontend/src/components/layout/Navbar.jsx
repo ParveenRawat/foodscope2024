@@ -38,11 +38,15 @@ const Navbar = () => {
       </nav>
 
       <div className="flex items-center gap-4">
-
         {userInfo ? (
           <DropDown username={userInfo.name} />
         ) : (
-          <Link to="/login" className="mr-2 bg-[#6B796E] rounded-md p-2 text-[#C7E7CD]">Login</Link>
+          <Link
+            to="/login"
+            className="mr-2 bg-[#6B796E] rounded-md p-2 text-[#C7E7CD]"
+          >
+            Login
+          </Link>
         )}
       </div>
     </header>
