@@ -6,24 +6,24 @@ import clsx from "clsx";
 
 const items = [
   {
-    question: "What payment methods do you accept?",
+    question: "What kind of recipes can I find on this website?",
     answer:
-      "We accept all major credit cards, PayPal, and various other payment methods depending on your location. Please contact our support team for more information on accepted payment methods in your region.",
+      "You can explore a diverse collection of recipes ranging from appetizers, main courses, desserts, and beverages to vegetarian, vegan, and gluten-free options. Our categories cover various cuisines and dietary preferences.",
   },
   {
-    question: "How does the pricing work for teams?",
+    question: "Are the recipes beginner-friendly?",
     answer:
-      "Our pricing is per user, per month. This means you only pay for the number of team members you have on your account. Discounts are available for larger teams and annual subscriptions.",
+      "Absolutely! Our recipes include detailed instructions and tips to help cooks of all levels, including beginners, create delicious meals.",
   },
   {
-    question: "Can I change my plan later?",
+    question: " How can I search for a specific recipe?",
     answer:
-      "Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and reflected in your next billing cycle.",
+      "Use the search bar on the homepage to find recipes by name, ingredients, or cuisine. You can also filter results based on dietary preferences and cooking time.",
   },
   {
-    question: "Is my data secure?",
+    question: "Are the recipes free to access?",
     answer:
-      "Security is our top priority. We use state-of-the-art encryption and comply with the best industry practices to ensure that your data is stored securely and accessed only by authorized users.",
+      "Yes, all the recipes on our website are free to access. Simply browse, select, and start cooking!",
   },
 ];
 

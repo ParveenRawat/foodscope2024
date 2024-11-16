@@ -45,7 +45,7 @@ const FeatureSlider = () => {
     };
 
     return (
-        <section className="bg-[#FFF9ED] py-12">
+        <section className="bg-[#FFF9ED] py-60">
             <div className="max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-[#333333] mb-8">Our Features</h2>
                 <Slider {...settings}>
